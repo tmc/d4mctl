@@ -26,8 +26,7 @@ while [ -z "$(docker info 2> /dev/null )" ]; do printf "."; sleep 1; done; echo 
 	var ready bool
 	// Try to connect to the docker engine.
 	for i := 0; i < 30; i++ {
-		ready, err = dockerIsReady(false)
-		if ready {
+		if ready, _ = dockerIsReady(false); ready {
 			return nil
 		}
 		fmt.Printf(".")

@@ -22,7 +22,7 @@ func loadConf() *d4m.Settings {
 
 var cmdk8s = &cobra.Command{
 	Use:   "k8s [status|enable|disable]",
-	Short: "get or set state of k8s-enabled in the local docker-for-mac installation",
+	Short: "Get or set state of k8s-enabled in the local docker-for-mac installation",
 	Args:  cobra.ExactValidArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		s := loadConf()
@@ -47,7 +47,7 @@ var cmdk8s = &cobra.Command{
 
 var cmdCpus = &cobra.Command{
 	Use:   "cpus [n]",
-	Short: "get or set number of cpus enabled in the local docker-for-mac installation",
+	Short: "Get or set number of cpus enabled in the local docker-for-mac installation",
 	Run: func(cmd *cobra.Command, args []string) {
 		s := loadConf()
 		if len(args) == 0 {
@@ -69,7 +69,7 @@ var cmdCpus = &cobra.Command{
 
 var cmdMem = &cobra.Command{
 	Use:   "mem [n]",
-	Short: "get or set amount of memory alllocated for the local docker-for-mac installation (in megabytes)",
+	Short: "Get or set amount of memory alllocated for the local docker-for-mac installation (in megabytes)",
 	Run: func(cmd *cobra.Command, args []string) {
 		s := loadConf()
 		if len(args) == 0 {
@@ -91,7 +91,7 @@ var cmdMem = &cobra.Command{
 
 var cmdDump = &cobra.Command{
 	Use:   "dump",
-	Short: "dump current configuration",
+	Short: "Dump current configuration",
 	Run: func(cmd *cobra.Command, args []string) {
 		json.NewEncoder(os.Stdout).Encode(loadConf())
 	},
@@ -100,7 +100,7 @@ var cmdDump = &cobra.Command{
 var restartWait bool
 var cmdRestart = &cobra.Command{
 	Use:   "restart",
-	Short: "restart docker-for-mac",
+	Short: "Restart docker-for-mac",
 	Run: func(cmd *cobra.Command, args []string) {
 		err := d4m.Restart(restartWait)
 		// exit early if we complete without issue
