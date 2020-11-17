@@ -1,0 +1,8 @@
+# d4mctl
+
+Command d4mctl controls a docker-for-mac instance.
+
+```sh
+$ d4mctl -h
+{{.HELP}}
+```
